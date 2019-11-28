@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
     <router-view/>
   </div>
 </template>
@@ -16,4 +16,13 @@
   text-align center
   color #2c3e50
   margin-top 60px
+.normal_back
+  background #90BA9B
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+  margin auto 
+  max-width 450px
 </style>
