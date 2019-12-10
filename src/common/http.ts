@@ -37,7 +37,7 @@ let http = axios.create({
   　　}]
   });
   
-  function apiAxios(method, url, params, response) {
+  function apiAxios(method:string, url:string, params:any, response:any) {
   　　http({
   　　　　method: method,
   　　　　url: url,
