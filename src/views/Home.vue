@@ -122,6 +122,9 @@ export default {
     }
   },
   mounted() {
+    this.$axios.get('./menuTree.json').then((result)=>{
+      console.log(result)
+    })
   },
   filters:{
     filterA:function (value) {
