@@ -125,6 +125,17 @@ export default {
     this.$axios.get('./menuTree.json').then((result)=>{
       console.log(result)
     })
+    this.$axios.get('http://caelestis.club:8000/public/menuTree.json').then((result)=>{
+      console.log(result)
+    })
+    this.$axios.get('http://caelestis.club:8000/linkData1').then((result)=>{
+      console.log("path1")
+      console.log(result)
+    })
+    this.$axios.get('http://caelestis.club:8000/linkData2').then((result)=>{
+      console.log("path2")
+      console.log(result)
+    })
   },
   filters:{
     filterA:function (value) {
