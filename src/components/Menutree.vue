@@ -18,26 +18,26 @@
 
 <script>
 export default {
-  name:"menutree",
-  props:["data"],
+  name: 'menutree',
+  props: ['data'],
   data () {
     return {
-      calWidth:160,
-      calLeft:0
-    };
+      calWidth: 160,
+      calLeft: 0
+    }
   },
   components: {},
   computed: {},
-  mounted(){
-    this.calWidth=this.calWidth-(this.data[0].level-1)*20
-    if(this.data[0].level>1){
-      this.calLeft=20
+  mounted () {
+    this.calWidth =this.calWidth - (this.data[0].level - 1) * 20
+    if (this.data[0].level > 1) {
+      this.calLeft = 20
     }
     console.log(this.$el)
   },
   methods: {
-    showNext(r){
-      r.ifOpen=!r.ifOpen
+    showNext (r) {
+      r.ifOpen = !r.ifOpen
     }
   }
 }

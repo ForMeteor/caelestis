@@ -47,14 +47,20 @@ module.exports = {
     // 为预处理器的 loader 传递自定义选项。比如传递给
     // sass-loader 时，使用 `{ sass: { ... } }`。
     loaderOptions: {
-    // css: {},
-    // postcss: {
-    //     plugins: [
-    //         require('postcss-px2rem')({
-    //             remUnit: 37.5
-    //         })
-    //     ]
-    // }
+      css: {},
+      postcss: {
+        plugins: [
+          // 补全css前缀(解决兼容性)
+          require('autoprefixer')(),
+          // 把px单位换算成rem单位
+          require('postcss-pxtorem')({
+            rootValue: 32, // 换算的基数(设计图750的根字体为32)
+            selectorBlackList: ['.van', '.my-van'], // 要忽略的选择器并保留为px。
+            propList: ['*'], // 可以从px更改为rem的属性。
+            minPixelValue: 2 // 设置要替换的最小像素值。
+          })
+        ]
+      }
     },
 
     // 为所有的 CSS 及其预处理文件开启 CSS Modules。
@@ -72,26 +78,26 @@ module.exports = {
 
   // 服务的相关配置
   devServer: {
-    port: "8888", // 端口
+    port: '8888', // 端口
     https: false, // 是否为https协议
-    host: "localhost", // 主机地址
-    open: "true", // 项目启动完后是否在浏览器中自动打开
+    host: 'localhost', // 主机地址
+    open: 'true', // 项目启动完后是否在浏览器中自动打开
     proxy: null // 本地代理配置
   },
 
-  configureWebpack: config => {
-    if (process.env.NODE_ENV === 'production') {
-        // 为生产环境修改配置...
-        if (process.env.npm_lifecycle_event === 'analyze') {
-            config.plugins.push(
-                new BundleAnalyzerPlugin()
-            );
-        }
+  // configureWebpack: config => {
+  //   if (process.env.NODE_ENV === 'production') {
+  //       // 为生产环境修改配置...
+  //       if (process.env.npm_lifecycle_event === 'analyze') {
+  //           config.plugins.push(
+  //               new BundleAnalyzerPlugin()
+  //           );
+  //       }
 
-    } else {
-    // 为开发环境修改配置...
-    }
-  },
+  //   } else {
+  //   // 为开发环境修改配置...
+  //   }
+  // },
 
   // 第三方插件的选项
   pluginOptions: {

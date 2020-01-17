@@ -15,14 +15,12 @@
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
 .normal_back
-  background #90BA9B
+  background grey
   position absolute
   top 0
   left 0
   right 0
   bottom 0
-  margin auto 
-  max-width 450px
+  margin auto
 </style>
