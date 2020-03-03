@@ -15,8 +15,10 @@
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
+  margin 0
+  padding 0
 .normal_back
-  background grey
+  background #ffffff
   position absolute
   top 0
   left 0
