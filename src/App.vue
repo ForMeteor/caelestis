@@ -5,9 +5,25 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <router-view/>
+    <botNav></botNav>
   </div>
 </template>
+<script>
+import botNav from '@/components/botNav.vue'
+export default {
+  data () {
+    return {
+    }
+  },
+  components: {
+    botNav
+  },
+  computed: {},
+  mounted () {},
+  methods: {}
+}
 
+</script>
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
@@ -22,7 +38,12 @@
   position absolute
   top 0
   left 0
-  right 0
+  right -18px
   bottom 0
   margin auto
+  overflow-x: hidden
+  overflow-y: scroll
+.normal_back_add
+  position relative
+  overflow hidden
 </style>

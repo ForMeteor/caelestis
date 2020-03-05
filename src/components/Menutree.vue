@@ -29,7 +29,7 @@ export default {
   components: {},
   computed: {},
   mounted () {
-    this.calWidth =this.calWidth - (this.data[0].level - 1) * 20
+    this.calWidth = this.calWidth - (this.data[0].level - 1) * 20
     if (this.data[0].level > 1) {
       this.calLeft = 20
     }

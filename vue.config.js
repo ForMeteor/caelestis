@@ -1,3 +1,9 @@
+const path = require('path')
+const webpack = require('webpack')
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
   // 项目部署的基础路径
   // 我们默认假设你的应用将会部署在域名的根部，
@@ -32,7 +38,11 @@ module.exports = {
 
   // 调整内部的 webpack 配置。
   // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/webpack.md
-  chainWebpack: () => {},
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@', resolve('./src'))
+      .set('@assets', resolve('./src/assets'))
+  },
   configureWebpack: () => {},
 
   // CSS 相关选项
@@ -54,7 +64,7 @@ module.exports = {
           require('autoprefixer')(),
           // 把px单位换算成rem单位
           require('postcss-pxtorem')({
-            rootValue: 32, // 换算的基数(设计图750的根字体为32)
+            rootValue: 37.5, // 换算的基数(设计图750)
             selectorBlackList: ['.van', '.my-van'], // 要忽略的选择器并保留为px。
             propList: ['*'], // 可以从px更改为rem的属性。
             minPixelValue: 2 // 设置要替换的最小像素值。

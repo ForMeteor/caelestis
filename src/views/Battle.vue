@@ -18,13 +18,12 @@ export default {
   },
   components: {},
   computed: {},
-  mounted(){
-      console.log("v")
-      var id=this.$route.query.id;
-      console.log(id)
+  mounted () {
+    var id = this.$route.query.id;
+    console.log(id)
   },
   methods: {
-      beat(){}
+    beat () {}
   }
 }
 
