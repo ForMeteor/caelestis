@@ -1,5 +1,5 @@
 import axios from 'axios' // 引入axios
-import QS from 'qs' // 引入qs模块，用来序列化post类型的数据
+/*import QS from 'qs' // 引入qs模块，用来序列化post类型的数据
 axios.defaults.timeout = 20000
 // axios.defaults.withCredentials = true
 axios.interceptors.request.use((config) => {

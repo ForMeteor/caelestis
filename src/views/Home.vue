@@ -1,64 +1,64 @@
 <template>
   <div class="normal_back">
     <div class="normal_back_add">
-    <!-- 永远存在的顶栏 -->
-    <div :class="{'home_top':nor,'home_top2':!nor}"></div>
-    <div class="home_pic"></div>
-    <div class="home_menu">
-      <div class="home_item" @click="begin">
-        <div class="home_item_img home_item_img1"></div>
-        <div class="home_item_text">一</div>
+      <!-- 永远存在的顶栏 -->
+      <div :class="{'home_top':nor,'home_top2':!nor}"></div>
+      <swiper :data='imgData'></swiper>
+      <!-- <div class="home_pic"></div> -->
+      <div class="home_menu">
+        <div class="home_item" @click="begin">
+          <div class="home_item_img home_item_img1"></div>
+          <div class="home_item_text">destiny2</div>
+        </div>
+        <div class="home_item">
+          <div class="home_item_img home_item_img2" @click="change"></div>
+          <div class="home_item_text">Witcher3</div>
+        </div>
+        <div class="home_item">
+          <div class="home_item_img home_item_img3"></div>
+          <div class="home_item_text">warhammer</div>
+        </div>
+        <div class="home_item">
+          <div class="home_item_img home_item_img4"></div>
+          <div class="home_item_text">Steep</div>
+        </div>
+        <div class="home_item">
+          <div class="home_item_img home_item_img5"></div>
+          <div class="home_item_text">???</div>
+        </div>
+        <div class="home_item">
+          <div class="home_item_img home_item_img6"></div>
+          <div class="home_item_text">animate</div>
+        </div>
+        <div class="home_item" @click="docu">
+          <div class="home_item_img home_item_img7"></div>
+          <div class="home_item_text">component</div>
+        </div>
+        <div class="home_item" @click="charts">
+          <div class="home_item_img home_item_img8"></div>
+          <div class="home_item_text">echarts</div>
+        </div>
       </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img2" @click="change"></div>
-        <div class="home_item_text">二</div>
+      <div class="home_bot">
+        <img :src='imgData[0]'>
+        <div>{{timer|filterA|filterB}}</div>
+        <!-- <div>{{count|decimalTwo}}</div> -->
       </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img3"></div>
-        <div class="home_item_text">三</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img4"></div>
-        <div class="home_item_text">四</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img5"></div>
-        <div class="home_item_text">五</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img6"></div>
-        <div class="home_item_text">动画</div>
-      </div>
-      <div class="home_item" @click="docu">
-        <div class="home_item_img home_item_img7"></div>
-        <div class="home_item_text">组件</div>
-      </div>
-      <div class="home_item" @click="charts">
-        <div class="home_item_img home_item_img8"></div>
-        <div class="home_item_text">图表</div>
-      </div>
-    </div>
-    <div class="home_bot">
-      <img :src='imgData[0]'>
-      <div>{{timer|filterA|filterB}}</div>
-      <div>{{count|decimalTwo}}</div>
-    </div>
     </div>
   </div>
 </template>
 
 <script>
+import constant from '@/common/constant'
+import swiper from '@/components/swiper'
 export default {
   name: 'home',
-  components: {},
+  components: {
+    swiper
+  },
   data () {
     return {
-      imgData: [
-        require('@/assets/home/steep.jpg'),
-        require('@/assets/home/ciri.jpg'),
-        require('@/assets/home/dragon.jpg'),
-        require('@/assets/home/knight.jpg')
-      ],
+      imgData: constant.HomeSwiperUrl,
       scroll: 0,
       nor: true,
       count: 0,
@@ -68,7 +68,10 @@ export default {
     }
   },
   mounted () {
+    console.log(constant.HomeSwiperUrl)
     console.log(this.$route.name)
+    console.log(this.$store.state.pageName)
+    this.$store.commit('pageChange', 'ooooppp')
     console.log(this.$store.state.pageName)
     window.addEventListener('scroll', this.handleScroll, true)
     // this.$axios.get('http://caelestis.club:8000/linkData1').then((result)=>{
@@ -114,6 +117,11 @@ export default {
     add () {
       this.count++
       console.log(this.count)
+    }
+  },
+  computed: {
+    pageName () {
+      return this.$store.state.pageName
     }
   }
 }
@@ -180,6 +188,7 @@ wid
    top 50px
    width 100%
    text-align center
+   font-size 13px
 .home_bot
  width 100%
  height 600px

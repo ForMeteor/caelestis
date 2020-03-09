@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
+import constant from '@/common/constant'
 import Home from '../views/Home.vue'
 import charts from '../views/game/charts.vue'
 import navv from '../views/document/navv.vue'
@@ -49,14 +50,23 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  // mode: 'hash',
+  // mode: 'hash', 
   base: process.env.BASE_URL,
   routes
 })
 router.beforeEach((to, from, next) => {
-  console.log(to.name)
-  console.log(Vuex)
+  if (to.name) {
+    router.app.$options.store.commit('pageChange', to.name)
+    if (constant.ShowButtonList.includes(to.name)) {
+      router.app.$options.store.commit('ShowBotNav')
+    } else {
+      router.app.$options.store.commit('HideBotNav')
+    }
+  }
   next()
 })
 export default router
-// 路由守卫  登录判定 轮播组件 首页+修饰完整 持久化 
+// 路由守卫  登录判定 轮播组件 首页+修饰完整 区别  理解history hash
+// v-for  key用途
+// import 消耗资源?
+// vuex ->getters ?

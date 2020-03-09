@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link>
     </div> -->
     <router-view/>
-    <botNav></botNav>
+    <botNav v-if="botNavShow"></botNav>
   </div>
 </template>
 <script>
@@ -18,7 +18,11 @@ export default {
   components: {
     botNav
   },
-  computed: {},
+  computed: {
+    botNavShow () {
+      return this.$store.state.botNavShow
+    }
+  },
   mounted () {},
   methods: {}
 }

@@ -1,6 +1,5 @@
-var apiBaseURL = 'http://caelestis.club';
-var apiDiaJsonGet = apiBaseURL + '/firstroom/diainfo';
+const apiBaseURL = 'http://caelestis.club'
+const apiDiaJsonGet = apiBaseURL + '/firstroom/diainfo'
 export default {
-    apiDiaJsonGet
-  }
-  
+  apiDiaJsonGet
+}
