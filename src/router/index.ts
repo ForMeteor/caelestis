@@ -66,7 +66,7 @@ router.beforeEach((to, from, next) => {
   next()
 })
 export default router
-// 路由守卫  登录判定 轮播组件 首页+修饰完整 区别  理解history hash
-// v-for  key用途
-// import 消耗资源?
-// vuex ->getters ?
+// 登录判定  history&hash
+// v-for key用途 
+// 性能检测
+// vuex ->getters 

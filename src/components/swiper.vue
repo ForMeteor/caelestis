@@ -1,7 +1,6 @@
 <!--  -->
 <template>
   <div class="swiper_wrap">
-      <!-- <div class="swiper_item"></div> -->
       <img v-for="(r,index) in data"
       :key="r"
       :src="r"
@@ -93,5 +92,5 @@ export default {
 .swiper_btn_select{
     background: #cccccc
 }
-/* change动画+++++ 三图轮播?*/
+/* change动画+++++*/
 </style>

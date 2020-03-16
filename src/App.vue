@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
+    <!-- 顶部标题栏？ -->
     <router-view/>
     <botNav v-if="botNavShow"></botNav>
   </div>
@@ -38,16 +39,25 @@ export default {
   margin 0
   padding 0
 .normal_back
-  background #ffffff
+  background #e5e5e5
   position absolute
   top 0
   left 0
-  right -18px
+  right 0
   bottom 0
-  margin auto
-  overflow-x: hidden
-  overflow-y: scroll
-.normal_back_add
-  position relative
   overflow hidden
+  overflow-y scroll
+ .normal_space
+  width 100%
+  height 100px
+.normal_back_add
+  position absolute
+  top 0
+  left 0
+  right 18px
+  bottom 0
+.text_ctrl
+  overflow: hidden
+  text-overflow:ellipsis
+  white-space: nowrap
 </style>

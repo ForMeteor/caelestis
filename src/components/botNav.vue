@@ -4,23 +4,23 @@
       <div class="botWrap">
           <div class="botItem">
               <div class="botItem_img botItem_img1"></div>
-              <div class="botItem_text botItem_text_in">首页</div>
+              <div class="botItem_text botItem_text_in">A</div>
           </div>
           <div class="botItem">
               <div class="botItem_img botItem_img3"></div>
-              <div class="botItem_text">二号</div>
+              <div class="botItem_text">B</div>
           </div>
           <div class="botItem">
               <div class="botItem_img botItem_img10"></div>
-              <div class="botItem_text">三号</div>
+              <div class="botItem_text">C</div>
           </div>
           <div class="botItem">
               <div class="botItem_img botItem_img6"></div>
-              <div class="botItem_text">四号</div>
+              <div class="botItem_text">D</div>
           </div>
           <div class="botItem">
               <div class="botItem_img botItem_img8"></div>
-              <div class="botItem_text">五号</div>
+              <div class="botItem_text">E</div>
           </div>
       </div>
   </div>

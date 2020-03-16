@@ -1,11 +1,11 @@
 <!--  -->
 <template>
   <div>
-    <ul class="wrap" :style="{width:calWidth+'px',paddingLeft:calLeft+'px'}">
+    <ul class="wrap" :style="{paddingLeft:calLeft+'px'}">
       <li v-for="r in data" :key="r.title" class="wrapLi">
         <div class="wrapLi_bold">
           <div class="wrapLi_icon" @click="showNext(r)"></div>
-          <span class="wrapLi_text"  @click="showNext(r)">{{r.title}}</span>
+          <span class="wrapLi_text text_ctrl"  @click="showNext(r)">{{r.title|filterA}}</span>
           <div class="wrapLi_tool"></div>
         </div>
         <ul v-if="r.children.length>0" v-show="r.ifOpen">
@@ -22,18 +22,23 @@ export default {
   props: ['data'],
   data () {
     return {
-      calWidth: 160,
+      calWidth: 180,
       calLeft: 0
     }
   },
   components: {},
   computed: {},
   mounted () {
-    this.calWidth = this.calWidth - (this.data[0].level - 1) * 20
+    // this.calWidth = this.calWidth - (this.data[0].level - 1) * 20
     if (this.data[0].level > 1) {
       this.calLeft = 20
     }
     console.log(this.$el)
+  },
+  filters: {
+    filterA: function (value) {
+      return value + '-XXX'
+    }
   },
   methods: {
     showNext (r) {
@@ -55,8 +60,15 @@ li{
 li:hover{
   cursor: pointer;
 }
+.wrapbox{
+    position: fixed;
+    left: 0;
+    width: 140px;
+    top: 0;bottom: 0;
+    background: rgba(225,230,238,0.5);
+}
 .wrap{
-  width: 160px;
+  width: 140px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -76,8 +88,10 @@ li:hover{
   background:black;
 }
 .wrapLi_text{
-  text-indent: 10px;
-  flex: 1 1 auto;
+  /* text-indent: 10px; */
+  /* flex: 1 1 auto; */
+  padding: 0 10px;
+  width: 60px
 }
 .wrapLi_tool{
   flex: 0 0 20px;

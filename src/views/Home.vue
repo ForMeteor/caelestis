@@ -1,14 +1,14 @@
 <template>
   <div class="normal_back">
-    <div class="normal_back_add">
-      <!-- 永远存在的顶栏 -->
+    <div class="">
+      <!-- 永远存在的顶栏 滚动侧边栏？-->
       <div :class="{'home_top':nor,'home_top2':!nor}"></div>
       <swiper :data='imgData'></swiper>
       <!-- <div class="home_pic"></div> -->
       <div class="home_menu">
         <div class="home_item" @click="begin">
           <div class="home_item_img home_item_img1"></div>
-          <div class="home_item_text">destiny2</div>
+          <div class="home_item_text">Destiny2</div>
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img2" @click="change"></div>
@@ -16,7 +16,7 @@
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img3"></div>
-          <div class="home_item_text">warhammer</div>
+          <div class="home_item_text">Warhammer</div>
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img4"></div>
@@ -24,32 +24,34 @@
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img5"></div>
-          <div class="home_item_text">???</div>
+          <div class="home_item_text">Game</div>
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img6"></div>
-          <div class="home_item_text">animate</div>
+          <div class="home_item_text">Animate</div>
         </div>
         <div class="home_item" @click="docu">
           <div class="home_item_img home_item_img7"></div>
-          <div class="home_item_text">component</div>
+          <div class="home_item_text">Component</div>
         </div>
         <div class="home_item" @click="charts">
           <div class="home_item_img home_item_img8"></div>
-          <div class="home_item_text">echarts</div>
+          <div class="home_item_text">Echarts</div>
         </div>
       </div>
       <div class="home_bot">
-        <img :src='imgData[0]'>
-        <div>{{timer|filterA|filterB}}</div>
-        <!-- <div>{{count|decimalTwo}}</div> -->
+        <div class="home_bot_item"></div>
+        <div class="home_bot_item"></div>
+        <div class="home_bot_item"></div>
+        <div class="home_bot_item"></div>
       </div>
+      <div class="normal_space"></div>
     </div>
   </div>
 </template>
 
 <script>
-import constant from '@/common/constant'
+import { HomeSwiperUrl } from '@/common/constant'
 import swiper from '@/components/swiper'
 export default {
   name: 'home',
@@ -58,7 +60,7 @@ export default {
   },
   data () {
     return {
-      imgData: constant.HomeSwiperUrl,
+      imgData: HomeSwiperUrl,
       scroll: 0,
       nor: true,
       count: 0,
@@ -68,7 +70,7 @@ export default {
     }
   },
   mounted () {
-    console.log(constant.HomeSwiperUrl)
+    console.log(HomeSwiperUrl)
     console.log(this.$route.name)
     console.log(this.$store.state.pageName)
     this.$store.commit('pageChange', 'ooooppp')
@@ -82,14 +84,6 @@ export default {
     //   console.log("path2")
     //   console.log(result)
     // })
-  },
-  filters: {
-    filterA: function (value) {
-      return value + 'AAA'
-    },
-    filterB: function (value) {
-      return value + 'BBB'
-    }
   },
   methods: {
     handleScroll () {
@@ -148,9 +142,10 @@ wid
 .home_menu
  margin-top 16px
  margin 0 auto
- width 375px
+ width 100%
  height 160px
- border-radius 30px 30px 0 0
+ background #ffffff
+ border-radius 10px 10px 10px 10px
  display flex
  flex-flow row wrap
  justify-content space-between
@@ -166,23 +161,30 @@ wid
    margin auto
    width 35px
    height 35px
-   background-size 100%
   .home_item_img1
     background url('~@/assets/menu/1.png') center no-repeat
+    background-size 100%
   .home_item_img2
     background url('~@/assets/menu/2.png') center no-repeat
+    background-size 100%
   .home_item_img3
     background url('~@/assets/menu/3.png') center no-repeat
+    background-size 100%
   .home_item_img4
     background url('~@/assets/menu/4.png') center no-repeat
+    background-size 100%
   .home_item_img5
     background url('~@/assets/menu/5.png') center no-repeat
+    background-size 100%
   .home_item_img6
     background url('~@/assets/menu/6.png') center no-repeat
+    background-size 100%
   .home_item_img7
     background url('~@/assets/menu/7.png') center no-repeat
+    background-size 100%
   .home_item_img8
     background url('~@/assets/menu/8.png') center no-repeat
+    background-size 100%
   .home_item_text
    position absolute
    top 50px
@@ -190,7 +192,17 @@ wid
    text-align center
    font-size 13px
 .home_bot
+ margin-top 10px
  width 100%
  height 600px
- background #e5e5e5
+ display flex
+ flex-direction column
+ align-items center
+ .home_bot_item
+  width 320px
+  height 120px
+  margin 10px 0
+  border-radius 5px
+  background #fff
+
 </style>
