@@ -22,11 +22,11 @@
           <div class="home_item_img home_item_img4"></div>
           <div class="home_item_text">Steep</div>
         </div>
-        <div class="home_item">
+        <div class="home_item" @click="toy">
           <div class="home_item_img home_item_img5"></div>
           <div class="home_item_text">Game</div>
         </div>
-        <div class="home_item">
+        <div class="home_item" @click="animate">
           <div class="home_item_img home_item_img6"></div>
           <div class="home_item_text">Animate</div>
         </div>
@@ -98,8 +98,14 @@ export default {
     begin () {
       this.$router.push('firstroom')
     },
+    animate () {
+      this.$router.push('ball')
+    },
+    toy () {
+      this.$router.push('toy')
+    },
     charts () {
-      this.$router.push('charts')
+      this.$router.push('count')
     },
     docu () {
       this.$router.push('navv')

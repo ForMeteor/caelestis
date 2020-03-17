@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import constant from '@/common/constant'
 import Home from '../views/Home.vue'
-import charts from '../views/game/charts.vue'
-import navv from '../views/document/navv.vue'
+import ball from '../views/animate/ball.vue'
+import count from '../views/echarts/count.vue'
 Vue.use(VueRouter)
 Vue.use(Vuex)
 const routes = [
@@ -37,14 +37,39 @@ const routes = [
     component: () => import('../views/Battle.vue')
   },
   {
-    path: '/charts',
-    name: 'charts',
-    component: () => import('../views/game/charts.vue')
+    path: '/toy',
+    name: 'toy',
+    component: () => import('../views/game/toy.vue')
+  },
+  {
+    path: '/count',
+    name: 'count',
+    component: () => import('../views/echarts/count.vue')
+  },
+  {
+    path: '/ball',
+    name: 'ball',
+    component: () => import('../views/animate/ball.vue')
   },
   {
     path: '/navv',
     name: 'navv',
-    component: () => import('../views/document/navv.vue')
+    component: () => import('../views/document/navv.vue'),
+    children: [{
+      path: '/navv_1',
+      name: 'navv_1',
+      component: () => import('../views/document/part/navv_1.vue')
+    },
+    {
+      path: '/navv_2',
+      name: 'navv_2',
+      component: () => import('../views/document/part/navv_2.vue')
+    },
+    {
+      path: '/navv_3',
+      name: 'navv_3',
+      component: () => import('../views/document/part/navv_3.vue')
+    }]
   }
 ]
 
@@ -67,6 +92,4 @@ router.beforeEach((to, from, next) => {
 })
 export default router
 // 登录判定  history&hash
-// v-for key用途 
 // 性能检测
-// vuex ->getters 

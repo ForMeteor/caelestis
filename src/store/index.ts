@@ -9,10 +9,23 @@ const vuexLocal = new VuexPersist({
 const store = new Vuex.Store({
   state: {
     pageName: 'home-vuex',
-    botNavShow: true,
-    loginStatus: false
+    botNavShow: false,
+    loginStatus: false,
+    testValue: [{
+      name: 'lili',
+      status: 'female'
+    }, {
+      name: 'lala',
+      status: 'male'
+    }, {
+      name: 'lulu',
+      status: 'female'
+    }, {
+      name: 'lele',
+      status: 'male'
+    }]
   },
-  mutations: { // 同步事物
+  mutations: { // 同步事务
     login (state) {
       state.loginStatus = true
     },
@@ -32,7 +45,15 @@ const store = new Vuex.Store({
       state.pageName = str
     }
   },
-  actions: { // 异步事物
+  getters: {
+    trueName: state => {
+      return state.testValue.filter(r => {
+        console.log(r)
+        return r.status === 'female'
+      })
+    }
+  },
+  actions: { // 异步事务
   },
   modules: {
   },

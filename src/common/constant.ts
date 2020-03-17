@@ -1,5 +1,5 @@
 // 公用常量
-export const ShowButtonList = ['home', 'fi']
+export const ShowButtonList = ['home', 'ball']
 export const HomeSwiperUrl = [
   require('@/assets/home/steep.jpg'),
   require('@/assets/home/steep1.jpg'),
@@ -18,13 +18,19 @@ export const MenuData = [
       level: 2,
       children: [
         {
-          title: '1.1.1.1',
+          title: 'navv_1',
           level: 3,
           ifOpen: false,
           children: []
         },
         {
-          title: '咕噜咕噜咕噜咕噜',
+          title: 'navv_2',
+          level: 3,
+          ifOpen: false,
+          children: []
+        },
+        {
+          title: 'navv_3',
           level: 3,
           ifOpen: false,
           children: []

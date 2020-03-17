@@ -5,7 +5,10 @@
       <li v-for="r in data" :key="r.title" class="wrapLi">
         <div class="wrapLi_bold">
           <div class="wrapLi_icon" @click="showNext(r)"></div>
-          <span class="wrapLi_text text_ctrl"  @click="showNext(r)">{{r.title|filterA}}</span>
+          <span class="wrapLi_text text_ctrl"  @click="showNext(r)" v-if="r.level==3">
+            <router-link :to="{path:r.title}">{{r.title|filterA}}</router-link>
+          </span>
+          <span class="wrapLi_text text_ctrl"  @click="showNext(r)" v-if="r.level!=3">{{r.title|filterA}}</span>
           <div class="wrapLi_tool"></div>
         </div>
         <ul v-if="r.children.length>0" v-show="r.ifOpen">

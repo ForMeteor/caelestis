@@ -1,11 +1,22 @@
 <!--  -->
 <template>
-  <div class="navv_wrap" @click="menuCtrl">
-    <div class="navv_top"></div>
-    <div class="navv_mid">
-      <div @click="showMenu">侧栏</div>
+  <div class="navv_wrap">
+    <div class="navv_top">
+      <!-- <div class="navv_top_menu">
+        <div class="navv_top_menu_item">1</div>
+        <div class="navv_top_menu_item">2</div>
+        <div class="navv_top_menu_item">3</div>
+        <div class="navv_top_menu_item">4</div>
+      </div> -->
+      <div class="navv_button" @click="showMenu" v-show="!showNav">menu</div>
+      <div class="navv_button" @click="showMenu" v-show="showNav">close</div>
     </div>
-    <div class="navv_bot"></div>
+    <div class="navv_mid">
+      <router-view></router-view>
+    </div>
+    <div class="navv_bot" @click="backHome">
+      <!-- <router-view></router-view> 多个routerview +name-->
+    </div>
     <div class="wrapbox" v-show="showNav">
       <Menutree :data="data"></Menutree>
     </div>
@@ -26,14 +37,20 @@ export default {
   components: {
     Menutree
   },
-  computed: {},
-  mounted () {},
+  computed: {
+    trueName: function () {
+      return this.$store.getters.trueName
+    }
+  },
+  mounted () {
+    console.log(this.trueName)
+  },
   methods: {
     showMenu () {
       this.showNav = !this.showNav
     },
-    menuCtrl () {
-      console.log('in')
+    backHome () {
+      this.$router.push('home')
     }
   }
 }
@@ -45,7 +62,14 @@ export default {
     left: 0;
     width: 120px;
     top: 0;bottom: 0;
-    /* background: rgba(225,230,238,0.5); */
+    background: rgba(225,230,238,0.5);
+}
+.navv_button{
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 20px;
+  background: #80aeeb;
 }
 .navv_wrap{
   position: absolute;
@@ -58,16 +82,31 @@ export default {
 .navv_top{
   width: 300px;
   background: #e5e5e5;
-  flex: 0.2
+  flex: 0.2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navv_top_menu{
+  position: absolute;
+  top:0;left: 0;
+  width: 100%;height: 30px;line-height: 30px;
+  background: #b8bbbb;
+  display: flex;
+}
+.navv_top_menu_item{
+  flex: 1;
+  text-align: center
 }
 .navv_mid{
   width: 300px;
-  background: rgb(170, 168, 168);
-  flex: 0.5
+  background: rgb(199, 197, 197);
+  flex: 0.5;
 }
 .navv_bot{
   width: 300px;
-  background: rgb(39, 39, 39);
+  background: rgb(132, 194, 229);
   flex: 0.2
 }
 </style>

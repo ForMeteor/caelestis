@@ -92,5 +92,4 @@ export default {
 .swiper_btn_select{
     background: #cccccc
 }
-/* change动画+++++*/
 </style>

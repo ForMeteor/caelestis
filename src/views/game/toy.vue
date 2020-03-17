@@ -1,7 +1,6 @@
 <!--  -->
 <template>
   <div>
-      图表
       <Dice></Dice>
   </div>
 </template>
