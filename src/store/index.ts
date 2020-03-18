@@ -61,33 +61,3 @@ const store = new Vuex.Store({
 })
 
 export default store
-// export default new Vuex.Store({
-//   state: {
-//     pageName: 'home-vuex',
-//     botNavShow: true,
-//     loginStatus: false
-//   },
-//   mutations: {
-//     login (state) {
-//       state.loginStatus = true
-//     },
-//     logOut (state) {
-//       state.loginStatus = false
-//     },
-//     ShowBotNav (state) {
-//       console.log('显示底栏')
-//       state.botNavShow = true
-//     },
-//     HideBotNav (state) {
-//       console.log('隐藏底栏')
-//       state.botNavShow = false
-//     },
-//     pageChange (state, str) {
-//       state.pageName = str
-//     }
-//   },
-//   actions: {
-//   },
-//   modules: {
-//   }
-// })

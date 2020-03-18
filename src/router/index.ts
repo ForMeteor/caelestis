@@ -90,5 +90,3 @@ router.beforeEach((to, from, next) => {
   next()
 })
 export default router
-// 登录判定  history&hash
-// 性能检测

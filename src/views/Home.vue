@@ -1,30 +1,31 @@
 <template>
   <div class="normal_back">
     <div class="">
-      <!-- 永远存在的顶栏 滚动侧边栏？-->
       <div :class="{'home_top':nor,'home_top2':!nor}"></div>
       <swiper :data='imgData'></swiper>
       <!-- <div class="home_pic"></div> -->
       <div class="home_menu">
-        <div class="home_item" @click="begin">
+        <!-- @click="begin" -->
+        <div class="home_item">
           <div class="home_item_img home_item_img1"></div>
-          <div class="home_item_text">Destiny2</div>
+          <div class="home_item_text">AAAAA</div>
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img2" @click="change"></div>
-          <div class="home_item_text">Witcher3</div>
+          <div class="home_item_text">BBBBB</div>
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img3"></div>
-          <div class="home_item_text">Warhammer</div>
+          <div class="home_item_text">CCCCC</div>
         </div>
         <div class="home_item">
           <div class="home_item_img home_item_img4"></div>
-          <div class="home_item_text">Steep</div>
+          <div class="home_item_text">DDDDD</div>
         </div>
-        <div class="home_item" @click="toy">
+        <!-- @click="toy" -->
+        <div class="home_item">
           <div class="home_item_img home_item_img5"></div>
-          <div class="home_item_text">Game</div>
+          <div class="home_item_text">EEEEE</div>
         </div>
         <div class="home_item" @click="animate">
           <div class="home_item_img home_item_img6"></div>
@@ -34,9 +35,10 @@
           <div class="home_item_img home_item_img7"></div>
           <div class="home_item_text">Component</div>
         </div>
-        <div class="home_item" @click="charts">
+        <!-- @click="charts" -->
+        <div class="home_item">
           <div class="home_item_img home_item_img8"></div>
-          <div class="home_item_text">Echarts</div>
+          <div class="home_item_text">HHHHH</div>
         </div>
       </div>
       <div class="home_bot">
@@ -70,20 +72,13 @@ export default {
     }
   },
   mounted () {
+    // 图片过大加载缓慢
     console.log(HomeSwiperUrl)
     console.log(this.$route.name)
     console.log(this.$store.state.pageName)
     this.$store.commit('pageChange', 'ooooppp')
     console.log(this.$store.state.pageName)
     window.addEventListener('scroll', this.handleScroll, true)
-    // this.$axios.get('http://caelestis.club:8000/linkData1').then((result)=>{
-    //   console.log("path1")
-    //   console.log(result)
-    // })
-    // this.$axios.get('http://caelestis.club:8000/linkData2').then((result)=>{
-    //   console.log("path2")
-    //   console.log(result)
-    // })
   },
   methods: {
     handleScroll () {
