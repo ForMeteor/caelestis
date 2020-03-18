@@ -1,12 +1,11 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import store from '@/store/index'
 import VueRouter from 'vue-router'
 import constant from '@/common/constant'
 import Home from '../views/Home.vue'
 import ball from '../views/animate/ball.vue'
 import count from '../views/echarts/count.vue'
 Vue.use(VueRouter)
-Vue.use(Vuex)
 const routes = [
   {
     path: '/',
@@ -81,11 +80,11 @@ const router = new VueRouter({
 })
 router.beforeEach((to, from, next) => {
   if (to.name) {
-    router.app.$options.store.commit('pageChange', to.name)
+    store.commit('pageChange', to.name)
     if (constant.ShowButtonList.includes(to.name)) {
-      router.app.$options.store.commit('ShowBotNav')
+      store.commit('ShowBotNav')
     } else {
-      router.app.$options.store.commit('HideBotNav')
+      store.commit('HideBotNav')
     }
   }
   next()
