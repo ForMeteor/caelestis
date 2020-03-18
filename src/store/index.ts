@@ -26,28 +26,28 @@ const store = new Vuex.Store({
     }]
   },
   mutations: { // 同步事务
-    login (state) {
+    login (state: any) {
       state.loginStatus = true
     },
-    logOut (state) {
+    logOut (state: any) {
       state.loginStatus = false
     },
-    ShowBotNav (state) {
+    ShowBotNav (state: any) {
       console.log('显示底栏')
       state.botNavShow = true
     },
-    HideBotNav (state) {
+    HideBotNav (state: any) {
       console.log('隐藏底栏')
       state.botNavShow = false
     },
-    pageChange (state, str) {
+    pageChange (state: any, str: string) {
       console.log('页面改为' + str)
       state.pageName = str
     }
   },
   getters: {
     trueName: state => {
-      return state.testValue.filter(r => {
+      return state.testValue.filter((r:any) => {
         console.log(r)
         return r.status === 'female'
       })
