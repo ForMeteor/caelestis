@@ -1,5 +1,5 @@
-// 公用常量
-export const ShowButtonList = ['home', 'ball']
+// 常量
+export const ShowButtonList = ['home', 'ba']
 export const HomeSwiperUrl = [
   require('@/assets/home/steep.jpg'),
   require('@/assets/home/steep1.jpg'),

@@ -28,7 +28,7 @@
         </div>
         <div class="home_item" @click="animate">
           <div class="home_item_img home_item_img6"></div>
-          <div class="home_item_text">Animate</div>
+          <div class="home_item_text">canvas</div>
         </div>
         <div class="home_item" @click="docu">
           <div class="home_item_img home_item_img7"></div>
