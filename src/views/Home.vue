@@ -1,54 +1,61 @@
 <template>
-  <div class="normal_back">
-    <div class="">
-      <div :class="{'home_top':nor,'home_top2':!nor}"></div>
-      <swiper :data='imgData'></swiper>
-      <!-- <div class="home_pic"></div> -->
-      <div class="home_menu">
-        <!-- @click="begin" -->
-        <div class="home_item">
-          <div class="home_item_img home_item_img1"></div>
-          <div class="home_item_text">AAAAA</div>
-        </div>
-        <div class="home_item">
-          <div class="home_item_img home_item_img2" @click="change"></div>
-          <div class="home_item_text">BBBBB</div>
-        </div>
-        <div class="home_item">
-          <div class="home_item_img home_item_img3"></div>
-          <div class="home_item_text">CCCCC</div>
-        </div>
-        <div class="home_item">
-          <div class="home_item_img home_item_img4"></div>
-          <div class="home_item_text">DDDDD</div>
-        </div>
-        <!-- @click="toy" -->
-        <div class="home_item">
-          <div class="home_item_img home_item_img5"></div>
-          <div class="home_item_text">EEEEE</div>
-        </div>
-        <div class="home_item" @click="animate">
-          <div class="home_item_img home_item_img6"></div>
-          <div class="home_item_text">canvas</div>
-        </div>
-        <div class="home_item" @click="docu">
-          <div class="home_item_img home_item_img7"></div>
-          <div class="home_item_text">Component</div>
-        </div>
-        <!-- @click="charts" -->
-        <div class="home_item">
-          <div class="home_item_img home_item_img8"></div>
-          <div class="home_item_text">HHHHH</div>
-        </div>
-      </div>
-      <div class="home_bot">
-        <div class="home_bot_item"></div>
-        <div class="home_bot_item"></div>
-        <div class="home_bot_item"></div>
-        <div class="home_bot_item"></div>
-      </div>
-      <div class="normal_space"></div>
+  <div class="normal_back" ref="mainbox">
+    <transition-group name="nav">
+      <div class="home_top" v-show="nor" :key="1">Test</div>
+      <div class="home_top2" v-show="!nor" :key="2">Caelestis</div>
+    </transition-group>
+    <div class="home_nav">
+      <div class="home_navitem home_navitem1"></div>
+      <div class="home_navitem home_navitem2"></div>
+      <div class="home_navitem home_navitem1"></div>
+      <div class="home_navitem home_navitem2"></div>
     </div>
+    <swiper :data='imgData'></swiper>
+    <!-- <div class="home_pic"></div> -->
+    <div class="home_menu">
+      <!-- @click="begin" -->
+      <div class="home_item">
+        <div class="home_item_img home_item_img1"></div>
+        <div class="home_item_text">AAAAA</div>
+      </div>
+      <div class="home_item">
+        <div class="home_item_img home_item_img2" @click="change"></div>
+        <div class="home_item_text">BBBBB</div>
+      </div>
+      <div class="home_item">
+        <div class="home_item_img home_item_img3"></div>
+        <div class="home_item_text">CCCCC</div>
+      </div>
+      <div class="home_item">
+        <div class="home_item_img home_item_img4"></div>
+        <div class="home_item_text">DDDDD</div>
+      </div>
+      <!-- @click="toy" -->
+      <div class="home_item">
+        <div class="home_item_img home_item_img5"></div>
+        <div class="home_item_text">EEEEE</div>
+      </div>
+      <div class="home_item" @click="animate">
+        <div class="home_item_img home_item_img6"></div>
+        <div class="home_item_text">canvas</div>
+      </div>
+      <div class="home_item" @click="docu">
+        <div class="home_item_img home_item_img7"></div>
+        <div class="home_item_text">Component</div>
+      </div>
+      <!-- @click="charts" -->
+      <div class="home_item">
+        <div class="home_item_img home_item_img8"></div>
+        <div class="home_item_text">HHHHH</div>
+      </div>
+    </div>
+    <div class="home_bot">
+      <div class="home_bot_item"></div>
+      <div class="home_bot_item"></div>
+      <div class="home_bot_item"></div>
+      <div class="home_bot_item"></div>
+    </div>
+    <div class="normal_space"></div>
   </div>
 </template>
 
@@ -73,18 +80,24 @@ export default {
   },
   mounted () {
     // 图片过大加载缓慢
-    console.log(HomeSwiperUrl)
-    console.log(this.$route.name)
-    console.log(this.$store.state.pageName)
+    // +防抖
     this.$store.commit('pageChange', 'ooooppp')
     console.log(this.$store.state.pageName)
-    window.addEventListener('scroll', this.handleScroll, true)
+    window.addEventListener('scroll', this.debounce(this.handleScroll, 200), true)
   },
   methods: {
+    debounce (cb, waitTime, immediate) {
+      var timeout
+      return function () {
+        clearTimeout(timeout)
+        timeout = setTimeout(cb, waitTime)
+      }
+    },
     handleScroll () {
-      this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+      this.scroll = this.$refs.mainbox.scrollTop
       if (this.scroll > 60) {
         this.nor = false
+        console.log('改变')
       } else {
         this.nor = true
       }
@@ -117,22 +130,53 @@ export default {
   computed: {
     pageName () {
       return this.$store.state.pageName
+    },
+    distance () {
+      return window.scrollTop()
     }
+  },
+  watch: {
   }
 }
 </script>
 <style lang="stylus" scoped>
 .home_top
- width 100%
- height 60px
- background #5687EA
+  position fixed
+  z-index 99
+  top 0
+  left 0
+  width 100%
+  height 60px
+  font-size 18px
+  line-height 60px
+  text-align center
+  background #3980EF
 .home_top2
  position fixed
+ z-index 99
  top 0
  left 0
  width 100%
  height 60px
- background #e5e5e5
+ font-size 18px
+ line-height 60px
+ text-align center
+ background #5687EA
+.home_nav
+ margin-top 60px
+ width 100%
+ height 160px
+ display flex
+ background #ffffff
+ .home_navitem
+  flex 1
+  height 160px
+ .home_navitem1
+  background url('~@/assets/home/girl.png') center no-repeat
+  background-size 35px 35px
+ .home_navitem2
+  background url('~@/assets/home/boy.png') center no-repeat
+  background-size 35px 35px
 wid
 .home_pic
   margin 0 auto
@@ -205,5 +249,13 @@ wid
   margin 10px 0
   border-radius 5px
   background #fff
-
+.nav-enter,.nav-leave-to{
+    opacity: 0;
+}
+.nav-enter-to,.nav-leave{
+    opacity: 1;
+}
+.nav-enter-active,.nav-leave-active{
+    transition: all 2s;
+}
 </style>
