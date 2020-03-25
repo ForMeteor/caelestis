@@ -30,14 +30,13 @@
         <div class="home_item_img home_item_img4"></div>
         <div class="home_item_text">DDDDD</div>
       </div>
-      <!-- @click="toy" -->
-      <div class="home_item">
+      <div class="home_item" @click="immature">
         <div class="home_item_img home_item_img5"></div>
-        <div class="home_item_text">EEEEE</div>
+        <div class="home_item_text">Immature</div>
       </div>
       <div class="home_item" @click="animate">
         <div class="home_item_img home_item_img6"></div>
-        <div class="home_item_text">canvas</div>
+        <div class="home_item_text">Canvas</div>
       </div>
       <div class="home_item" @click="docu">
         <div class="home_item_img home_item_img7"></div>
@@ -60,7 +59,7 @@
 </template>
 
 <script>
-import { HomeSwiperUrl } from '@/common/constant'
+import { HomeSwiperUrl, ColorSwiperUrl } from '@/common/constant'
 import swiper from '@/components/swiper'
 export default {
   name: 'home',
@@ -69,7 +68,7 @@ export default {
   },
   data () {
     return {
-      imgData: HomeSwiperUrl,
+      imgData: ColorSwiperUrl,
       scroll: 0,
       nor: true,
       count: 0,
@@ -79,8 +78,8 @@ export default {
     }
   },
   mounted () {
-    // 图片过大加载缓慢
-    // +防抖
+    // 图片过大加载缓慢 图片懒加载
+    // npm+ 引入 首页优化  echarts
     this.$store.commit('pageChange', 'ooooppp')
     console.log(this.$store.state.pageName)
     window.addEventListener('scroll', this.debounce(this.handleScroll, 200), true)
@@ -109,7 +108,7 @@ export default {
     animate () {
       this.$router.push('ball')
     },
-    toy () {
+    immature () {
       this.$router.push('toy')
     },
     charts () {
@@ -130,9 +129,6 @@ export default {
   computed: {
     pageName () {
       return this.$store.state.pageName
-    },
-    distance () {
-      return window.scrollTop()
     }
   },
   watch: {
@@ -244,7 +240,7 @@ wid
  flex-direction column
  align-items center
  .home_bot_item
-  width 320px
+  width 80%
   height 120px
   margin 10px 0
   border-radius 5px

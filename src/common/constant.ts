@@ -1,4 +1,4 @@
-// 常量
+// 公共
 export const ShowButtonList = ['home', 'ba']
 export const HomeSwiperUrl = [
   require('@/assets/home/steep.jpg'),
@@ -6,6 +6,14 @@ export const HomeSwiperUrl = [
   require('@/assets/home/steep2.jpg'),
   require('@/assets/home/steep3.jpg'),
   require('@/assets/home/steep4.jpg')
+]
+export const ColorSwiperUrl = [
+  require('@/assets/background/blue.jpg'),
+  require('@/assets/background/light.jpg'),
+  require('@/assets/background/little.jpg'),
+  require('@/assets/background/orange.jpg'),
+  require('@/assets/background/rainbow.jpg'),
+  require('@/assets/background/purple.jpg')
 ]
 export const MenuData = [
   {
@@ -105,5 +113,6 @@ export const MenuData = [
   }]
 export default {
   ShowButtonList,
-  HomeSwiperUrl
+  HomeSwiperUrl,
+  ColorSwiperUrl
 }

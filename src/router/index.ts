@@ -38,7 +38,7 @@ const routes = [
   {
     path: '/toy',
     name: 'toy',
-    component: () => import('../views/game/toy.vue')
+    component: () => import('../views/immature/toy.vue')
   },
   {
     path: '/count',

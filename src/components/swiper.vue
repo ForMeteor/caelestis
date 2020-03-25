@@ -1,12 +1,14 @@
 <!--  -->
 <template>
   <div class="swiper_wrap">
+    <!-- <transition-group name="swiper_act"> -->
       <img v-for="(r,index) in data"
       :key="r"
       :src="r"
       class="swiper_item"
       @click="detail"
       v-show="num==index"/>
+    <!-- </transition-group> -->
       <div class="swiper_ctrl">
         <div class="swiper_btn"
         v-for="(r,index) in data"
@@ -92,4 +94,13 @@ export default {
 .swiper_btn_select{
     background: #cccccc
 }
+/* .swiper_act-enter,.swiper_act-leave-to{
+    opacity: 0;
+}
+.swiper_act-enter-to,.swiper_act-leave{
+    opacity: 1;
+}
+.swiper_act-enter-active,.swiper_act-leave-active{
+    transition: all 4s;
+} */
 </style>
