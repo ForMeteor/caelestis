@@ -92,7 +92,16 @@ module.exports = {
     https: false, // 是否为https协议
     host: 'localhost', // 主机地址
     open: 'true', // 项目启动完后是否在浏览器中自动打开
-    proxy: null // 本地代理配置
+    proxy: {
+      '/api': {
+        target: 'http://47.97.73.43:3006',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '/api': '/'
+        }
+      }
+    } // 本地代理配置
   },
 
   // configureWebpack: config => {
