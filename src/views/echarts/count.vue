@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 前后台传值测试 -->
 <template>
   <div class="normal_back">
   </div>

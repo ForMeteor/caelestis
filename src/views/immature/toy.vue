@@ -1,4 +1,4 @@
-<!-- 前后台传值测试 -->
+<!-- three.js test -->
 <template>
   <div class="toy_wrap" id="container">
   </div>
