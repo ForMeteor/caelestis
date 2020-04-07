@@ -1,6 +1,7 @@
 <!--  -->
 <template>
   <div class="navv_wrap">
+    <!-- <navTop></navTop> -->
     <div class="navv_top">
       <!-- <div class="navv_top_menu">
         <div class="navv_top_menu_item">1</div>
@@ -26,6 +27,7 @@
 <script>
 import { MenuData } from '@/common/constant'
 import Menutree from '@/components/Menutree.vue'
+// import navTop from 'sept_vue'
 export default {
   name: 'navv',
   data () {

@@ -6,9 +6,9 @@
               <div class="botItem_img botItem_img1"></div>
               <div class="botItem_text botItem_text_in">A</div>
           </div>
-          <div class="botItem">
+          <div class="botItem" @click="page2">
               <div class="botItem_img botItem_img3"></div>
-              <div class="botItem_text">B</div>
+              <div class="botItem_text">page2</div>
           </div>
           <div class="botItem">
               <div class="botItem_img botItem_img10"></div>
@@ -40,7 +40,11 @@ export default {
 
   mounted () {},
 
-  methods: {}
+  methods: {
+    page2 () {
+      this.$router.push('page2')
+    }
+  }
 }
 
 </script>

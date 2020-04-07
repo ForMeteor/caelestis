@@ -13,8 +13,7 @@
     <swiper :data='imgData'></swiper>
     <!-- <div class="home_pic"></div> -->
     <div class="home_menu">
-      <!-- @click="begin" -->
-      <div class="home_item">
+      <div class="home_item" @click="lau">
         <div class="home_item_img home_item_img1"></div>
         <div class="home_item_text">AAAAA</div>
       </div>
@@ -45,7 +44,7 @@
       <!-- @click="charts" -->
       <div class="home_item">
         <div class="home_item_img home_item_img8"></div>
-        <div class="home_item_text">HHHHH</div>
+        <div class="home_item_text">{{nextTick}}</div>
       </div>
     </div>
     <div class="home_bot">
@@ -54,7 +53,8 @@
       <div class="home_bot_item"></div>
       <div class="home_bot_item"></div>
     </div>
-    <div class="normal_space"></div>
+    <div class="normal_space">
+    </div>
   </div>
 </template>
 
@@ -74,12 +74,22 @@ export default {
       count: 0,
       timer: 'tttttt',
       showPop: false,
-      dia: {}
+      dia: {},
+      nextTick: 'aa'
     }
   },
   mounted () {
     // 图片过大加载缓慢 图片懒加载
     // npm+ 引入 首页优化  echarts
+    console.group()
+    console.log(this.nextTick)
+    this.nextTick = 'bbbbb'
+    console.log(this.nextTick)
+    this.$nextTick(function () {
+      console.log(this.nextTick)
+    })
+    console.groupEnd()
+    console.log(this.$method)
     this.$store.commit('pageChange', 'ooooppp')
     console.log(this.$store.state.pageName)
     window.addEventListener('scroll', this.debounce(this.handleScroll, 200), true)
@@ -104,6 +114,9 @@ export default {
     },
     begin () {
       this.$router.push('firstroom')
+    },
+    lau () {
+      this.$router.push('lau')
     },
     animate () {
       this.$router.push('ball')

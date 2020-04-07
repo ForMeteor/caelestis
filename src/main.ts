@@ -5,9 +5,15 @@ import axios from 'axios'
 import 'lib-flexible/flexible'
 import router from './router'
 import store from './store'
+// import func from 'sept_method'
 import api from './common/axios/apiCollection'
+import filters from './common/filter'
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+// Vue.prototype.$method = func
+Object.keys(filters).forEach((key: string) => {
+  Vue.filter(key, (filters as any)[key])
+})
 new Vue({
   router,
   store,
