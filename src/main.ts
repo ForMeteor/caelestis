@@ -8,6 +8,9 @@ import store from './store'
 // import func from 'sept_method'
 import api from './common/axios/apiCollection'
 import filters from './common/filter'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 // Vue.prototype.$method = func

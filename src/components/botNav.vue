@@ -2,25 +2,13 @@
 <template>
   <div>
       <div class="botWrap">
-          <div class="botItem">
-              <div class="botItem_img botItem_img1"></div>
-              <div class="botItem_text botItem_text_in">A</div>
+          <div class="botItem" @click="home">
+              <div class="botItem_img" :class="{'botItem_img1':pageName==='home','botItem_img2':pageName!='home'}"></div>
+              <div class="botItem_text" :class="{'botItem_text_in':pageName==='home'}">主页</div>
           </div>
-          <div class="botItem" @click="page2">
-              <div class="botItem_img botItem_img3"></div>
-              <div class="botItem_text">page2</div>
-          </div>
-          <div class="botItem">
-              <div class="botItem_img botItem_img10"></div>
-              <div class="botItem_text">C</div>
-          </div>
-          <div class="botItem">
-              <div class="botItem_img botItem_img6"></div>
-              <div class="botItem_text">D</div>
-          </div>
-          <div class="botItem">
-              <div class="botItem_img botItem_img8"></div>
-              <div class="botItem_text">E</div>
+          <div class="botItem" @click="settings">
+              <div class="botItem_img" :class="{'botItem_img4':pageName==='settings','botItem_img3':pageName!='settings'}"></div>
+              <div class="botItem_text" :class="{'botItem_text_in':pageName==='settings'}">设置</div>
           </div>
       </div>
   </div>
@@ -36,13 +24,26 @@ export default {
 
   components: {},
 
-  computed: {},
+  computed: {
+    pageName: function () {
+      return this.$store.state.pageName
+    }
+  },
 
-  mounted () {},
+  mounted () {
+    // pageName
+    console.log("-----------")
+    console.log(this.pageName)
+  },
 
   methods: {
-    page2 () {
-      this.$router.push('page2')
+    home () {
+      if (this.pageName === 'home') { return }
+      this.$router.push('home')
+    },
+    settings () {
+      if (this.pageName === 'settings') { return }
+      this.$router.push('settings')
     }
   }
 }
@@ -54,7 +55,7 @@ export default {
     display: flex;
     bottom: 0;
     left: 0;
-    height:60px;
+    height:55px;
     width: 100%;
     background:#ffffff;
 }
@@ -62,56 +63,33 @@ export default {
     flex: 1
 }
 .botItem_img{
-    height: 40px;
+    height: 36px;
     width: 100%;
 }
 .botItem_img1{
-    background: url('~@/assets/menu/index.png') center no-repeat;
-    background-size: 25px 25px
+    background: url('~@/assets/menu/hoe.png') center no-repeat;
+    background-size: 28px 28px
 }
 .botItem_img2{
-    background: url('~@/assets/menu/inde.png') center no-repeat;
-    background-size: 25px 25px
+    background: url('~@/assets/menu/user.png') center no-repeat;
+    background-size: 28px 28px
 }
 .botItem_img3{
-    background: url('~@/assets/menu/park.png') center no-repeat;
-    background-size: 25px 25px
+    background: url('~@/assets/menu/set.png') center no-repeat;
+    background-size: 28px 28px
 }
 .botItem_img4{
-    background: url('~@/assets/menu/par.png') center no-repeat;
-    background-size: 25px 25px
-}
-.botItem_img5{
-    background: url('~@/assets/menu/ser.png') center no-repeat;
-    background-size: 25px 25px
-}
-.botItem_img6{
-    background: url('~@/assets/menu/serve.png') center no-repeat;
-    background-size: 25px 25px
-}
-.botItem_img7{
-    background: url('~@/assets/menu/mine.png') center no-repeat;
-    background-size: 25px 25px
-}
-.botItem_img8{
-    background: url('~@/assets/menu/user.png') center no-repeat;
-    background-size: 25px 25px
-}
-.botItem_img9{
-    background: url('~@/assets/menu/sha.png') center no-repeat;
-    background-size: 25px 25px
-}
-.botItem_img10{
-    background: url('~@/assets/menu/share.png') center no-repeat;
-    background-size: 25px 25px
+    background: url('~@/assets/menu/set2.png') center no-repeat;
+    background-size: 28px 28px
 }
 .botItem_text{
-    height: 20px;
-    line-height: 20px;
+    height: 15px;
+    line-height: 15px;
     text-align: center;
     width: 100%;
+    color: #BDC7D9;
 }
 .botItem_text_in{
-    color: #93B4FD
+    color: #5D759C;
 }
 </style>

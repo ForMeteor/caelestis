@@ -1,5 +1,5 @@
 // 公共
-export const ShowButtonList = ['home', 'ba']
+export const ShowButtonList = ['home', 'settings']
 export const HomeSwiperUrl = [
   require('@/assets/home/steep.jpg'),
   require('@/assets/home/steep1.jpg'),
