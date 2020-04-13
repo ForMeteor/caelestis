@@ -3,13 +3,16 @@ import store from '@/store/index'
 import VueRouter from 'vue-router'
 import constant from '@/common/constant'
 import Home from '../views/Home.vue'
-import ball from '../views/animate/ball.vue'
-import count from '../views/echarts/count.vue'
 Vue.use(VueRouter)
+// name 中英文选择？meta
 const routes = [
   {
     path: '/',
     name: 'home',
+    meta: {
+      title: '首页',
+      icon: 'dashboard'
+    },
     component: Home
   },
   {

@@ -8,7 +8,7 @@ const vuexLocal = new VuexPersist({
 })
 const store = new Vuex.Store({
   state: {
-    pageName: 'home-vuex',
+    pageName: 'home',
     botNavShow: false,
     loginStatus: false,
     testValue: [{

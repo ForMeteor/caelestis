@@ -1,13 +1,9 @@
 <template>
-  <div class="normal_back" ref="mainbox">
-    <transition-group name="nav">
-      <div class="home_top" v-show="nor" :key="1">Test</div>
-      <div class="home_top2" v-show="!nor" :key="2">Caelestis</div>
-    </transition-group>
+  <div class="normal_back">
     <div class="home_bg">
-      <div class="home_bg_notice">
+      <div class="home_bg_notice text_ctrl">
         <div class="home_bg_notice_icon"></div>
-        <div class="home_bg_notice_text"></div>
+        <div class="home_bg_notice_text">公告：公告信息内容公告信息内容，公告信息公告：公告信息内容公告信息内容，公告信息</div>
       </div>
       <div class="home_bg_menu">
           <el-row :gutter="10" class="ele_i">
@@ -17,7 +13,7 @@
           <el-row :gutter="10" class="ele_i">
             <el-col :span="8"><div class="grid-content home_bg_menu_bg3" @click="immature"></div></el-col>
             <el-col :span="8"><div class="grid-content home_bg_menu_bg4" @click="charts"></div></el-col>
-            <el-col :span="8"><div class="grid-content home_bg_menu_bg5" @click="docu"></div></el-col>
+            <el-col :span="8"><div class="grid-content2 home_bg_menu_bg5" @click="docu"></div></el-col>
           </el-row>
       </div>
     </div>
@@ -73,8 +69,6 @@ export default {
   data () {
     return {
       imgData: ColorSwiperUrl,
-      scroll: 0,
-      nor: true,
       count: 0,
       timer: 'tttttt',
       showPop: false,
@@ -84,35 +78,10 @@ export default {
   },
   mounted () {
     // 图片过大加载缓慢 图片懒加载
+    // 滚动公告
     // npm+ 引入 首页优化  echarts
-    console.group()
-    console.log(this.nextTick)
-    this.nextTick = 'bbbbb'
-    console.log(this.nextTick)
-    this.$nextTick(function () {
-      console.log(this.nextTick)
-    })
-    console.groupEnd()
-    window.addEventListener('scroll', this.debounce(this.handleScroll, 200), true)
   },
   methods: {
-    debounce (cb, waitTime, immediate) {
-      var timeout
-      return function () {
-        clearTimeout(timeout)
-        timeout = setTimeout(cb, waitTime)
-      }
-    },
-    handleScroll () {
-      this.scroll = this.$refs.mainbox.scrollTop
-      if (this.scroll > 60) {
-        this.nor = false
-        console.log('改变')
-      } else {
-        this.nor = true
-      }
-      console.log(this.scroll)
-    },
     begin () {
       this.$router.push('firstroom')
     },
@@ -150,32 +119,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.home_top{
-  position: fixed
-  z-index: 99
-  top: 0
-  left: 0
-  width: 100%
-  height :60px
-  font-size: 18px
-  line-height :60px
-  text-align: center
-  background :#3980EF
-}
-.home_top2{
- position: fixed
- z-index: 99
- top: 0
- left: 0
- width: 100%
- height :60px
- font-size :18px
- line-height: 60px
- text-align :center
- background :#5687EA
- }
 .home_bg{
- margin-top: 60px
  position :relative
  width: 100%
  height: 281px
@@ -188,11 +132,21 @@ export default {
   right: 15px
   bottom: 52px
   height: 16px
-  margin :auto
-  background :red
+  line-height:16px;
+  margin :auto;
+  color:#FFFFFF;
 }
-.home_bg_notice_icon{}
-.home_bg_notice_text{}
+.home_bg_notice_icon{
+  position:absolute;
+  left:0;top:2px;
+  width:12px;
+  height:12px;
+  background:url("~@/assets/menu/tell.png")
+  background-size:100%;
+}
+.home_bg_notice_text{
+  text-indent:20px;
+}
  .home_bg_menu{
   position :absolute
   left: 15px
@@ -210,6 +164,10 @@ export default {
     border :1px dashed black
     height :100px
     }
+   .grid-content2{
+    border :1px solid black
+    height :100px
+   }
    .home_bg_menu_bg1{
     background :url('~@/assets/home/bg1.png') no-repeat center
     background-size :100% 100%

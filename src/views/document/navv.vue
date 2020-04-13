@@ -27,7 +27,6 @@
 <script>
 import { MenuData } from '@/common/constant'
 import Menutree from '@/components/Menutree.vue'
-// import navTop from 'sept_vue'
 export default {
   name: 'navv',
   data () {
@@ -45,6 +44,11 @@ export default {
     }
   },
   mounted () {
+    // ruoyi test
+    // 左侧动态路由加入
+    // 跳转引入 addrouter？
+    // 跳转接login界面？权限动态路由
+    // 3处组件增加
     console.log(this.trueName)
   },
   methods: {
