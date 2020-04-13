@@ -9,7 +9,8 @@ const vuexLocal = new VuexPersist({
 const store = new Vuex.Store({
   state: {
     pageName: 'home',
-    botNavShow: false,
+    botNavShow: true,
+    topNavShow: true,
     loginStatus: false,
     testValue: [{
       name: 'lili',
@@ -39,6 +40,14 @@ const store = new Vuex.Store({
     HideBotNav (state: any) {
       console.log('隐藏底栏')
       state.botNavShow = false
+    },
+    ShowTopNav (state: any) {
+      console.log('显示顶栏')
+      state.topNavShow = true
+    },
+    HideTopNav (state: any) {
+      console.log('隐藏顶栏')
+      state.topNavShow = false
     },
     pageChange (state: any, str: string) {
       console.log('页面改为' + str)

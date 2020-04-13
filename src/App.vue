@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <topNav v-if="true"></topNav>
+    <topNav v-if="topNavShow"></topNav>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -25,6 +25,9 @@ export default {
   computed: {
     botNavShow () {
       return this.$store.state.botNavShow
+    },
+    topNavShow () {
+      return this.$store.state.topNavShow
     }
   },
   mounted () {},

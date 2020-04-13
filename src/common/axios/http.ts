@@ -10,7 +10,7 @@ const xhr = {
   get (url:string) {
     return new Promise((resolve, reject) => {
       instance.get(url).then((res:any) => {
-        resolve(res.data)
+        resolve(res)
       }).catch((err:any) => {
         reject(err)
       })

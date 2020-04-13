@@ -33,7 +33,6 @@ export default {
   },
 
   mounted () {
-    // 顶栏显示筛选
     // 监听滚动+动画
     // window.addEventListener('scroll', this.debounce(this.handleScroll, 200), true)
   },

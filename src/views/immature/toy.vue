@@ -31,6 +31,7 @@ export default {
     this.animate()
   },
   methods: {
+    // 打包error
     // objLoader.load('https://cywarr.github.io/small-shop/Kirche3D.obj'...
     init: function () {
       let container = document.getElementById('container')

@@ -1,0 +1,20 @@
+{
+    "router1":[
+        {
+            "path": "/visitor",
+            "name": "visitor",
+            "meta": {
+                "title": ""
+            }
+        }
+    ],
+    "router2":[
+        {
+            "path": "/guest",
+            "name": "guest",
+            "meta": {
+                "title": ""
+            }
+        }
+    ]
+}

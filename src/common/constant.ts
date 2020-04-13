@@ -1,5 +1,6 @@
 // 公共
-export const ShowButtonList = ['home', 'settings']
+export const ShowBotNavList = ['home', 'settings']
+export const HideTopNavList = ['navv', 'toy']
 export const HomeSwiperUrl = [
   require('@/assets/home/steep.jpg'),
   require('@/assets/home/steep1.jpg'),
@@ -112,7 +113,8 @@ export const MenuData = [
     children: []
   }]
 export default {
-  ShowButtonList,
+  ShowBotNavList,
+  HideTopNavList,
   HomeSwiperUrl,
   ColorSwiperUrl
 }

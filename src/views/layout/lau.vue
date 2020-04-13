@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="lau">
+  <div class="noTopNav_back lau">
     <!-- <sideNav></sideNav> -->
     <div>{{msg|formdate}}</div>
     <div>{{msg2|decimalTwo}}</div>

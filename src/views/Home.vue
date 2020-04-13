@@ -18,41 +18,6 @@
       </div>
     </div>
     <!-- <swiper :data='imgData'></swiper> -->
-    <!-- <div class="home_pic"></div> -->
-    <!-- <div class="home_menu">
-      <div class="home_item" @click="lau">
-        <div class="home_item_img home_item_img1"></div>
-        <div class="home_item_text">PC</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img2" @click="change"></div>
-        <div class="home_item_text">BBBBB</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img3"></div>
-        <div class="home_item_text">CCCCC</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img4"></div>
-        <div class="home_item_text">DDDDD</div>
-      </div>
-      <div class="home_item" @click="immature">
-        <div class="home_item_img home_item_img5"></div>
-        <div class="home_item_text">Immature</div>
-      </div>
-      <div class="home_item" @click="animate">
-        <div class="home_item_img home_item_img6"></div>
-        <div class="home_item_text">Canvas</div>
-      </div>
-      <div class="home_item" @click="docu">
-        <div class="home_item_img home_item_img7"></div>
-        <div class="home_item_text">Component</div>
-      </div>
-      <div class="home_item">
-        <div class="home_item_img home_item_img8"></div>
-        <div class="home_item_text">{{nextTick}}</div>
-      </div>
-    </div> -->
     <div class="normal_space">
     </div>
   </div>
@@ -68,23 +33,19 @@ export default {
   },
   data () {
     return {
-      imgData: ColorSwiperUrl,
-      count: 0,
-      timer: 'tttttt',
-      showPop: false,
-      dia: {},
-      nextTick: 'aa'
+      imgData: ColorSwiperUrl // 轮播图地址
     }
   },
   mounted () {
     // 图片过大加载缓慢 图片懒加载
     // 滚动公告
+    // navv 动态路由测试
     // npm+ 引入 首页优化  echarts
   },
   methods: {
-    begin () {
-      this.$router.push('firstroom')
-    },
+    // begin () {
+    //   this.$router.push('firstroom')
+    // },
     lau () {
       this.$router.push('lau')
     },
@@ -99,14 +60,6 @@ export default {
     },
     docu () {
       this.$router.push('navv')
-    },
-    change () {
-      console.log('change')
-      this.showPop = !this.showPop
-    },
-    add () {
-      this.count++
-      console.log(this.count)
     }
   },
   computed: {
@@ -158,7 +111,7 @@ export default {
   background: #ffffff
   }
   .ele_i{
-    margin-top :5px
+    margin-top :7.5px
   }
    .grid-content{
     border :1px dashed black

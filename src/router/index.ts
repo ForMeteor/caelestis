@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import store from '@/store/index'
 import VueRouter from 'vue-router'
+import axios from 'axios'
 import constant from '@/common/constant'
 import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 // name 中英文选择？meta
+// +axios
 const routes = [
   {
     path: '/',
@@ -91,13 +93,26 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+var getRouter:any
 router.beforeEach((to, from, next) => {
+  if (!getRouter) {
+    // 加载动态路由++++
+    axios.get('http://caelestis.club:3006/linkData').then((res) => {
+      console.log(res)
+    }).catch()
+    console.log('add router')
+  }
   if (to.name) {
     store.commit('pageChange', to.name)
-    if (constant.ShowButtonList.includes(to.name)) {
+    if (constant.ShowBotNavList.includes(to.name)) {
       store.commit('ShowBotNav')
     } else {
       store.commit('HideBotNav')
+    }
+    if (constant.HideTopNavList.includes(to.name)) {
+      store.commit('HideTopNav')
+    } else {
+      store.commit('ShowTopNav')
     }
   }
   next()
