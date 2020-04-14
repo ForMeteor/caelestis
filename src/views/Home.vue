@@ -3,7 +3,10 @@
     <div class="home_bg">
       <div class="home_bg_notice text_ctrl">
         <div class="home_bg_notice_icon"></div>
-        <div class="home_bg_notice_text">公告：公告信息内容公告信息内容，公告信息公告：公告信息内容公告信息内容，公告信息</div>
+        <div class="home_bg_notice_text">
+          <div class="textMarq">公告：信息信息信息信息信息信息信息信息信息</div>
+          <!-- <span class="textMarq2">公告：信息信息信息信息信息信息信息信息信息</span> -->
+        </div>
       </div>
       <div class="home_bg_menu">
           <el-row :gutter="10" class="ele_i">
@@ -19,6 +22,7 @@
     </div>
     <!-- <swiper :data='imgData'></swiper> -->
     <div class="normal_space">
+    <el-button :plain="true" @click="openAlert">警告</el-button>
     </div>
   </div>
 </template>
@@ -39,10 +43,34 @@ export default {
   mounted () {
     // 图片过大加载缓慢 图片懒加载
     // 滚动公告
-    // navv 动态路由测试
+    // navv 动态路由测试 权限控制
     // npm+ 引入 首页优化  echarts
+    if (this.IsPC()) {
+      this.openAlert()
+    }
   },
   methods: {
+    IsPC () {
+      var userAgentInfo = navigator.userAgent
+      var Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPod']
+      var flag = true
+      for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false
+          break
+        }
+      }
+      if (window.screen.width >= 768) {
+        flag = true
+      }
+      return flag
+    },
+    openAlert () {
+      this.$message({
+        message: '建议改为移动端浏览',
+        type: 'warning'
+      })
+    },
     // begin () {
     //   this.$router.push('firstroom')
     // },
@@ -98,7 +126,20 @@ export default {
   background-size:100%;
 }
 .home_bg_notice_text{
-  text-indent:20px;
+  position:absolute;
+  left:20px;right:0;
+  height:16px;
+  overflow:hidden
+}
+.textMarq{
+  position:absolute
+  left:100%;
+  width:100%;
+  animation:textMove 10s linear infinite
+}
+@keyframes textMove{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(-200%);}
 }
  .home_bg_menu{
   position :absolute
