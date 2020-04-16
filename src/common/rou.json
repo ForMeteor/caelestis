@@ -4,16 +4,16 @@
             "path": "/visitor",
             "name": "visitor",
             "meta": {
-                "title": ""
+                "title": "游客"
             }
         }
     ],
     "router2":[
         {
-            "path": "/guest",
-            "name": "guest",
+            "path": "/admin",
+            "name": "admin",
             "meta": {
-                "title": ""
+                "title": "管理员"
             }
         }
     ]

@@ -97,7 +97,7 @@ var getRouter:any
 router.beforeEach((to, from, next) => {
   if (!getRouter) {
     // 加载动态路由++++
-    axios.get('http://caelestis.club:3006/linkData').then((res) => {
+    axios.get('http://caelestis.club:3006/a/linkData').then((res) => {
       console.log(res)
     }).catch()
     console.log('add router')

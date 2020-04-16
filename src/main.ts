@@ -13,7 +13,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
-Vue.prototype.$method = func
+// Vue.prototype.$method = func
 Object.keys(filters).forEach((key: string) => {
   Vue.filter(key, (filters as any)[key])
 })

@@ -1,6 +1,6 @@
 // 公共
 export const ShowBotNavList = ['home', 'settings']
-export const HideTopNavList = ['navv', 'toy']
+export const HideTopNavList = ['navv', 'toy', 'settings']
 export const HomeSwiperUrl = [
   require('@/assets/home/steep.jpg'),
   require('@/assets/home/steep1.jpg'),
