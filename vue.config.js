@@ -99,7 +99,7 @@ module.exports = {
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          '/api': '/'
+          '^/api': '/'
         }
       }
     } // 本地代理配置

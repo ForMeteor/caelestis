@@ -16,7 +16,8 @@
       <router-view></router-view>
     </div>
     <div class="navv_bot" @click="backHome">
-      <!-- <router-view></router-view> 多个routerview +name-->
+      <router-view name="bot"></router-view>
+      <!-- 多个routerview +name -->
     </div>
     <div class="wrapbox" v-show="showNav">
       <Menutree :data="data"></Menutree>

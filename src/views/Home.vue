@@ -41,6 +41,10 @@ export default {
     }
   },
   mounted () {
+    console.log(process.env.NODE_ENV)
+    this.$axios.get('/api/a/linkData').then((res) => {
+      console.log(res.data)
+    }).catch()
     // 图片过大加载缓慢 图片懒加载
     // 滚动公告
     // navv 动态路由测试 权限控制

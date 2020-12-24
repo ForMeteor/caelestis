@@ -19,7 +19,7 @@ export default {
   components: {},
   computed: {},
   mounted () {
-    var id = this.$route.query.id;
+    var id = this.$route.query.id
     console.log(id)
   },
   methods: {
