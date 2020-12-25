@@ -13,7 +13,7 @@
       <div class="navv_button" @click="showMenu" v-show="showNav">close</div>
     </div>
     <div class="navv_mid">
-      <router-view></router-view>
+      <router-view name="mid"></router-view>
     </div>
     <div class="navv_bot" @click="backHome">
       <router-view name="bot"></router-view>

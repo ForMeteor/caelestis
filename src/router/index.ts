@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import axios from 'axios'
 import constant from '@/common/constant'
 import Home from '../views/Home.vue'
+import navv_1 from '../views/document/part/navv_1.vue'
+import navv_2 from '../views/document/part/navv_2.vue'
 Vue.use(VueRouter)
 // name 中英文选择？meta
 // +axios
@@ -72,12 +74,20 @@ const routes = [
     children: [{
       path: '/navv_1',
       name: 'navv_1',
-      component: () => import('../views/document/part/navv_1.vue')
+      // component: () => import('../views/document/part/navv_1.vue')
+      components: {
+        mid: navv_1,
+        bot: navv_2
+      }
     },
     {
       path: '/navv_2',
       name: 'navv_2',
-      component: () => import('../views/document/part/navv_2.vue')
+      // component: () => import('../views/document/part/navv_2.vue')
+      components: {
+        mid: navv_2,
+        bot: navv_1
+      }
     },
     {
       path: '/navv_3',
